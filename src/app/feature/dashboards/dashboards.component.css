@@ -1,0 +1,63 @@
+main{
+  display: flex;
+  & section{
+    flex:1;
+  }
+}
+
+section{
+   position: relative;
+
+   &::after{
+    content:'';
+    position: absolute;
+    top:0;
+    inset-inline: 0;
+    height: 120px;
+    background-color: var(--color-header);
+
+   }
+}
+
+.container-cards{
+  position: absolute;
+  top: 5%;
+  inset-inline: 0;
+  display: grid;
+  grid-template-areas:
+    "select-country climate available-countries"
+    "other-tasks available-time-zone ."
+    ". hour . ";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1rem;
+  place-items: center;
+  z-index: 3;
+
+  & .select-country{
+    grid-area: select-country;
+  }
+
+  & .climate{
+    grid-area: climate;
+  }
+
+  & .available-countries{
+    grid-area: available-countries;
+  }
+
+  & .other-tasks{
+    grid-area: other-tasks;
+  }
+
+  & .hour{
+    grid-area: hour;
+  }
+
+  & .available-time-zone{
+    grid-area: available-time-zone;
+  }
+
+
+}
+

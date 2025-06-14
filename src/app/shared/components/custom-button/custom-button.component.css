@@ -1,0 +1,45 @@
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 740px;
+  height: 50px;
+  border-radius: 2px;
+  color: var(--while);
+  background-color: rgb(32, 32, 32);
+  transition: color 1s ease-in , background-color 1s ease-in;
+
+  &:hover{
+    color: rgb(32, 32, 32);
+    background-color: #d4d4d4;
+  }
+
+  &:disabled{
+    background-color: rgb(80, 75, 75);
+  }
+
+}
+
+
+
+.loader {
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #FFF;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

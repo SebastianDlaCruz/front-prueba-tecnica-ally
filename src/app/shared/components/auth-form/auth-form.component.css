@@ -1,0 +1,18 @@
+section{
+  height: 600px;
+  width: 780px;
+
+  header{
+    height: 105px;
+    padding-inline: var(--auth-padding-inline);
+    line-height: 105px;
+    font-weight: 600;
+    background-color: #2b2a2a;
+    text-align: left;
+  }
+
+
+}
+
+
+

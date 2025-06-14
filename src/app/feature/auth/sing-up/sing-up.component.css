@@ -1,0 +1,8 @@
+.container-passwords{
+  display: flex;
+  gap: 1rem;
+
+  & div{
+    flex:1;
+  }
+}

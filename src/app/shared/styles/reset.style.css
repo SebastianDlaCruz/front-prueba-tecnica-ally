@@ -1,0 +1,36 @@
+*{
+  box-sizing: border-box;
+}
+
+::after,::before{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  background-color: var(--background);
+  color: var(--while);
+  font-family: var(--font-family);
+}
+
+
+input{
+  border:none;
+}
+
+button{
+  border:none;
+  background: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul,li{
+  list-style-type: none;
+}
+
+ul{
+  padding: 0;
+}

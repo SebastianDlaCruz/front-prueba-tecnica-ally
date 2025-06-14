@@ -1,0 +1,45 @@
+<main class="flex-center auth-form-mt">
+
+  <app-auth-form title="Regístrate">
+
+    <form class="auth-from" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="custom-input">
+        <label for="name">Nombre</label>
+        <input type="name" name="name" id="name" required formControlName="name" [class.is-invalid]="invalid('name')" />
+      </div>
+
+
+
+      <div class="container-passwords">
+
+        <div class="custom-input">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required formControlName="password"
+            [class.is-invalid]="invalid('password')" />
+        </div>
+
+        <div class="custom-input">
+          <label for="password">Confirm Password</label>
+          <input type="password" name="password" id="password" required formControlName="password" />
+        </div>
+
+      </div>
+
+      <div class="custom-input">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required formControlName="email"
+          [class.is-invalid]="invalid('email')" />
+      </div>
+
+      <div class="auth-container-actions">
+        <app-custom-button type="submit" text="Registrase" [disable]="isDisable" />
+        <span>Ya tienes una cuenta? <a routerLink="sing-up">Inicia sesión</a></span>
+      </div>
+
+    </form>
+  </app-auth-form>
+
+</main>
+
+<app-toast />

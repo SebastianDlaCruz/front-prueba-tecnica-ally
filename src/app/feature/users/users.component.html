@@ -1,0 +1,12 @@
+<header>
+  <a routerLink="/">
+    <ng-icon [svg]="arrowIcon"></ng-icon>
+  </a>
+  <h1>Usuarios</h1>
+</header>
+
+<div class="container-table">
+  <app-filter-users class="filter" />
+  <app-table-users />
+  <app-pagination-users />
+</div>
