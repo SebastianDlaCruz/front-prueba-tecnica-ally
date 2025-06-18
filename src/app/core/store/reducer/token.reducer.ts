@@ -1,11 +1,26 @@
 import { createReducer, on } from "@ngrx/store";
-import { deleteToken, setToken } from "../actions/token.action";
+import { deleteTokens, setTokens } from "../actions/token.action";
 
-export const tokenState = "";
+
+export interface Tokens {
+  token: string | null;
+  refreshToken: string | null;
+}
+export const tokenState: Tokens = {
+  token: null,
+  refreshToken: null
+};
 
 export const tokenReducer = createReducer(
   tokenState,
-  on(setToken, (state, { token }) => state = token),
-  on(deleteToken, (state) => state = '')
-
-)
+  on(setTokens, (state, { refreshToken, token }) => ({
+    ...state,
+    token,
+    refreshToken
+  })),
+  on(deleteTokens, (state) => ({
+    ...state,
+    token: null,
+    refreshToken: null
+  }))
+);

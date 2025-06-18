@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { AuthHttpService } from '@core/http';
-import { InputsSingIn } from '@core/models';
-import { setToken } from '@core/store/actions/token.action';
+import { Router, RouterLink } from '@angular/router';
+import { AuthHttpService, InputsSingIn, LocalStoreService, setTokens } from '@core/index';
 import { Store } from '@ngrx/store';
 import { AuthFormComponent, CustomButtonComponent, ToastComponent } from '@shared/components';
 import { ToastService, ToastStatus } from '@shared/components/toast';
@@ -18,11 +16,13 @@ import { ToastService, ToastStatus } from '@shared/components/toast';
 export class SingInComponent {
 
   private readonly authsService = inject(AuthHttpService);
+  private readonly localStoreService = inject(LocalStoreService);
+  private readonly router = inject(Router);
   private readonly store = inject<Store<{ token: string }>>(Store);
 
   form = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
   });
 
   isLoading = false;
@@ -35,6 +35,9 @@ export class SingInComponent {
     return this.form.get(name)?.invalid && this.form.get(name)?.touched
   }
 
+  error(name: string, error: string) {
+    return this.form.get(name)?.getError(error);
+  }
 
   onSubmit() {
 
@@ -45,22 +48,24 @@ export class SingInComponent {
 
       this.authsService.singIn(this.form.value as InputsSingIn).subscribe({
         next: (value) => {
-          const { token } = value;
-          this.store.dispatch(setToken({ token }))
+          const { token, refreshToken } = value;
+          console.log(value);
+          this.localStoreService.setTokens(token, refreshToken);
+          this.store.dispatch(setTokens({ token, refreshToken }));
+          this.router.navigate(['']);
         },
         error: (error) => {
-
+          /* console.log(error.error.code_error) */
+          this.isDisable = false;
+          this.isLoading = false
           this.toastService.open({
             title: 'Error',
-            paragraph: 'al iniciar session',
+            paragraph: error.error.code_error,
             status: ToastStatus.ERROR,
             deration: 6000
           })
         },
-        complete: () => {
-          this.isDisable = false;
-          this.isLoading = false
-        }
+
 
       })
 

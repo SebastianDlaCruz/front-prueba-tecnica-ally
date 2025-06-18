@@ -1,0 +1,9 @@
+ul{
+  padding-inline: 1.4rem;
+}
+
+
+li{
+  padding-block: 1rem;
+  list-style-type: circle;
+}

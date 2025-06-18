@@ -1,0 +1,8 @@
+article{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 98px;
+  padding: 1rem;
+}

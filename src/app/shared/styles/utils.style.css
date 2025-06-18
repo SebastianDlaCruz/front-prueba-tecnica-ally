@@ -67,7 +67,7 @@
 
 .card{
   --size: 300px;
-  min-height: var(--size);
+  min-height: 160px;
   width: var(--size);
 
   background-color: #3a3a3a;

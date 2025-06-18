@@ -6,7 +6,8 @@
 </header>
 
 <div class="container-table">
-  <app-filter-users class="filter" />
-  <app-table-users />
-  <app-pagination-users />
+  <app-table-users [users]="users" />
+  <app-pagination-users [currentPage]="dataPagination.currentPage" (onFirst)="onFirst()" (onLast)="onLast()"
+    (onPrev)="onPrev()" (onNext)="onNext()" [totalItems]="dataPagination.totalItems"
+    [totalPages]="dataPagination.totalPages" />
 </div>

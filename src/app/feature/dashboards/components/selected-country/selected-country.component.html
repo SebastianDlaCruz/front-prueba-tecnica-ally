@@ -1,8 +1,17 @@
 <section class="card  selected">
   <header>
-    Países Seleccionados
+    Países Seleccionado
   </header>
 
+  <article>
+    @if(data$ | async; as data){
+    <strong>{{data.location.country}}</strong>
+    <strong>Capital: {{data.location.name}}</strong>
+    <strong>Region: {{data.location.region}}</strong>
+    <strong>Lat: {{data.location.lat}} Longitud: {{data.location.lon}}
+    </strong>
+    }
+  </article>
 
 
 </section>

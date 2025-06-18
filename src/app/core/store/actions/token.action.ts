@@ -1,4 +1,4 @@
 import { createAction, props } from "@ngrx/store";
 
-export const setToken = createAction('[Token Component]SetToken', props<{ token: string }>());
-export const deleteToken = createAction('[Token Component]DeleteToken');
+export const setTokens = createAction('[Token Component] SetToken', props<{ token: string, refreshToken: string }>());
+export const deleteTokens = createAction('[Token Component] DeleteToken');

@@ -3,6 +3,43 @@
     Países Disponibles
   </header>
 
+  @if (countries$ | async; as countries){
+
+  <ul>
+
+    @for ( country of countries; track country.id){
+
+    <li>
+
+      <button (click)="setDate(country.name,country.id)">
+
+        @switch (country.id) {
+
+        @case (1) {
+        <ng-icon [svg]="argIcon"></ng-icon>
+        }
+
+        @case (2) {
+        <ng-icon [svg]="peIcon"></ng-icon>
+        }
+
+        @case (3) {
+        <ng-icon [svg]="mxIcon"></ng-icon>
+        }
+
+        }
+
+
+        <span>{{ country.name }}</span>
+
+      </button>
+
+
+    </li>
+
+    }
+  </ul>
+  }
 
 
 </section>

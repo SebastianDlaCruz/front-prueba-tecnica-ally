@@ -3,6 +3,20 @@
     Zonas Horarias Disponibles
   </header>
 
+  <article>
+    @if(data$ |async; as cities){
+    <ul>
+      @for(city of cities; track city.id ){
+      <li>
+        <button (click)="setName(city.name)">
+          America/{{city.name}}
+        </button>
+      </li>
+      }
+
+    </ul>
+    }
+  </article>
 
 
 </section>

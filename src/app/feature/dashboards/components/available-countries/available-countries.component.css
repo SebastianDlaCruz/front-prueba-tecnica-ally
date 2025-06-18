@@ -1,0 +1,31 @@
+ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+li button{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 200px;
+
+  &:focus{
+   color: #fff;
+    text-decoration: underline;
+  }
+
+  &:hover{
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  & span{
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+}

@@ -5,10 +5,14 @@
     <form class="auth-from" [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <div class="custom-input">
-        <label for="name">Nombre</label>
-        <input type="name" name="name" id="name" required formControlName="name" [class.is-invalid]="invalid('name')" />
-      </div>
+        <label for="username">Nombre</label>
+        <input type="text" name="username" id="username" required formControlName="username"
+          [class.is-invalid]="invalid('username')" />
 
+        @if(invalid('username')){
+        <small>El nombre es requerido</small>
+        }
+      </div>
 
 
       <div class="container-passwords">
@@ -17,11 +21,36 @@
           <label for="password">Password</label>
           <input type="password" name="password" id="password" required formControlName="password"
             [class.is-invalid]="invalid('password')" />
+
+          @if(invalid('password')){
+          <small>El nombre es requerido</small>
+          }
+
+          @if(error('password','pattern')){
+          <small>La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter
+            especial &commat; &dollar;!%*?&</small>
+          }
         </div>
 
         <div class="custom-input">
-          <label for="password">Confirm Password</label>
-          <input type="password" name="password" id="password" required formControlName="password" />
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" required formControlName="confirmPassword"
+            [class.is-invalid]="invalid('confirmPassword')" />
+
+          @if(invalid('confirmPassword')){
+          <small>El nombre es requerido</small>
+          }
+          |
+          @if(error('confirmPassword','pattern')){
+          <small>La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter
+            especial &commat; &dollar;!%*?&</small>
+          }
+
+
+          @if(showPasswordMatchError()){
+          <small>Las contraseñas no son iguales</small>
+          }
+
         </div>
 
       </div>
@@ -30,6 +59,13 @@
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required formControlName="email"
           [class.is-invalid]="invalid('email')" />
+        @if(invalid('email')){
+        <small>El nombre es requerido</small>
+        }
+
+        @if(error('email','email')){
+        <small>El campo debería ser un email</small>
+        }
       </div>
 
       <div class="auth-container-actions">

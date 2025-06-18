@@ -8,11 +8,28 @@
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required formControlName="email"
           [class.is-invalid]="invalid('email')" />
+
+        @if (invalid('email')) {
+        <span>El email es requerido</span>
+        }
+
+        @if(error('email','email')){
+        <small>El campo debe ser un email</small>
+        }
       </div>
 
       <div class="custom-input">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" required formControlName="password" />
+        <input type="password" name="password" id="password" required formControlName="password"
+          [class.is-invalid]="invalid('email')" />
+        @if (invalid('password')) {
+        <small>El email es requerido</small>
+        }
+
+        @if(error('password','pattern')){
+        <small>La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter
+          especial &commat; &dollar;!%*?&</small>
+        }
       </div>
 
       <div class="auth-container-actions">

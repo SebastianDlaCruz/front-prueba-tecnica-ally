@@ -3,6 +3,11 @@
     Hora
   </header>
 
-
+  <article>
+    @if(data$ | async; as data){
+    <strong>{{data.location.localtime}}</strong>
+    <strong>{{data.location.tz_id}}</strong>
+    }
+  </article>
 
 </section>

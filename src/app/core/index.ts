@@ -1,9 +1,13 @@
 export * from './guards/auth.guard';
 export * from './http';
 export * from './http/auth-http/auth-http.service';
-export * from './http/interfaces/http-services.interface';
+export * from './http/auth-http/interfaces/http-services.interface';
+export * from './http/country-http/country-http.service';
+export * from './http/weather-http/weather-http.service';
+export * from './interceptors/auth-head/auth-head.interceptor';
+export * from './interceptors/url-base/url-base.interceptor';
 export * from './models';
+export * from './services/local-store/local-store.service';
 export * from './store';
 export * from './store/actions/token.action';
 export * from './store/reducer/token.reducer';
-

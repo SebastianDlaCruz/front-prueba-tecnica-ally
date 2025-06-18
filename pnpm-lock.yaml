@@ -38,6 +38,9 @@ importers:
       '@ng-icons/feather-icons':
         specifier: ^32.0.0
         version: 32.0.0
+      '@ng-icons/flag-icons':
+        specifier: ^32.0.0
+        version: 32.0.0
       '@ngrx/store':
         specifier: ^19.2.1
         version: 19.2.1(@angular/core@19.2.14(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
@@ -1309,6 +1312,9 @@ packages:
 
   '@ng-icons/feather-icons@32.0.0':
     resolution: {integrity: sha512-qaBYVnmU6OjS1ywk/QkPAzxmMdDj68NAPvmj5qGD6ddX+zgL8rA25dArkN8c2soMZ4GwpB1NywLwExkijdlB0Q==}
+
+  '@ng-icons/flag-icons@32.0.0':
+    resolution: {integrity: sha512-x/is5sxd1eUnc9U3A6cC0YN5IOkPArndWfeUeUka9BGx9+/RBhH0GgSLMAtyFQ2+geomBHFLKWf45jCMjZEPqw==}
 
   '@ngrx/store@19.2.1':
     resolution: {integrity: sha512-c5vQId7YoAhM0y4HASrz9mtLju+28vJspd6OBlhPbBlSae8GN8m9S/oav+8LaSY19yh95cZ5B/nMcLNNWgL/jA==}
@@ -5626,6 +5632,10 @@ snapshots:
       tslib: 2.8.1
 
   '@ng-icons/feather-icons@32.0.0':
+    dependencies:
+      tslib: 2.8.1
+
+  '@ng-icons/flag-icons@32.0.0':
     dependencies:
       tslib: 2.8.1
 

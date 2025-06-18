@@ -3,6 +3,17 @@
     Clima
   </header>
 
+  @if(data$ | async; as data){
+
+  <article>
+    <img [src]="data.current.condition.icon" [alt]="data.current.condition.text">
+    <strong>
+      <span>{{data.current.temp_c}} C</span>
+      <span>{{data.current.condition.text}}</span>
+    </strong>
+  </article>
+
+  }
 
 
 </section>

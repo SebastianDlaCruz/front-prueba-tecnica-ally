@@ -5,4 +5,16 @@
     <th>Fecha de registro</th>
     <th>Ultimo login</th>
   </thead>
+
+  <tbody>
+    @for(user of users; track user.uuid){
+    <tr>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{user.register_date | date:'dd/MM/yyyy - h:mm:ss a' }}</td>
+      <td>{{ user.session_start_date | date:'dd/MM/yyyy - h:mm:ss a' }}</td>
+    </tr>
+
+    }
+  </tbody>
 </table>

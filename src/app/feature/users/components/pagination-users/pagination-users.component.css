@@ -3,7 +3,7 @@ div{
   justify-content: space-between;
   align-items: center;
   height: 104px;
-  padding-inline: 6rem;
+  padding-inline: 3rem;
 }
 
 ul{
@@ -30,6 +30,13 @@ button{
   }
 }
 
+span{
+  display: inline-block;
+  height: 45px;
+  padding: 1em;
+  border: 1px solid rgb(37, 37, 37);
+  background-color: rgb(87, 87, 87);
+}
 
 .start{
   border-bottom-left-radius: 8px;
