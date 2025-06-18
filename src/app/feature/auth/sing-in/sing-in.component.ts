@@ -49,13 +49,13 @@ export class SingInComponent {
       this.authsService.singIn(this.form.value as InputsSingIn).subscribe({
         next: (value) => {
           const { token, refreshToken } = value;
-          console.log(value);
+
           this.localStoreService.setTokens(token, refreshToken);
           this.store.dispatch(setTokens({ token, refreshToken }));
           this.router.navigate(['']);
         },
         error: (error) => {
-          /* console.log(error.error.code_error) */
+
           this.isDisable = false;
           this.isLoading = false
           this.toastService.open({

@@ -52,7 +52,7 @@ export class SingUpComponent {
       this.isLoading = true;
 
       const { confirmPassword, ...singUp } = this.form.value;
-      console.log(singUp)
+
       this.authHttpServices.singUp(singUp as InputsSingUp).pipe().subscribe({
         next: (value) => {
           this.router.navigate(['/sing-in']);

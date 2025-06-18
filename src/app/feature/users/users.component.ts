@@ -39,7 +39,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.authHttpService.getUser().subscribe({
       next: (value) => {
-        console.log(value)
+
         this.addDatePagination(value)
       }
     })
